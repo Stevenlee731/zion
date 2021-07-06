@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '~@reach/dialog/styles.css';
+
+:root {
+    --swiper-navigation-color: black;
+}
+
+[data-reach-dialog-content] {
+    height: 75vh;
+    width: 80rem;
+}
+
+.mySwiper {
+    height: 100%;
+}
