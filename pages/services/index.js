@@ -51,7 +51,7 @@ function ServicesPage() {
                             <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">Services We
                                 offer</h2>
                         </div>
-                        <div className="mt-12 max-w-lg mx-auto grid gap-x-7 gap-y-10 lg:grid-cols-3 lg:max-w-none">
+                        <div className="mt-12 px-6 lg:px-0 max-w-lg mx-auto grid gap-x-7 gap-y-10 lg:grid-cols-3 lg:max-w-none">
                             {services.map((service) => (
                                 <Link
                                     key={service.title}

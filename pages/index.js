@@ -5,6 +5,9 @@ import WhyChooseUs from "../components/why-choose-us";
 import Banner from "../components/banner";
 import Testimonials from "../components/testimonials";
 import {ParallaxBanner} from "react-scroll-parallax";
+import {
+    isMobile
+} from "react-device-detect";
 
 function IndexPage() {
   return (
@@ -16,6 +19,7 @@ function IndexPage() {
 
         <div className="max-w-7xl mx-auto">
           <ParallaxBanner
+              disabled={isMobile}
               layers={[
                 {
                   image: 'https://res.cloudinary.com/stevelee/image/upload/v1625436899/home-banner.jpg',
@@ -24,7 +28,7 @@ function IndexPage() {
                 },
               ]}
               style={{
-                height: '500px',
+                height: isMobile ? '300px': '500px',
               }}
           >
             <div
@@ -36,7 +40,7 @@ function IndexPage() {
           </ParallaxBanner>
         </div>
         <div className="max-w-7xl mx-auto">
-          <div className="relative pt-16 pb-16 overflow-hidden">
+          <div className="relative pt-3 lg:pt-16 pb-3 lg:pb-16 overflow-hidden">
             <div aria-hidden="true" className="absolute inset-x-0 top-0 h-48"/>
             <div className="relative">
               <div
@@ -78,15 +82,16 @@ function IndexPage() {
                 <div className="mt-12 sm:mt-16 lg:mt-0">
                   <div className="-mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
                     <ParallaxBanner
+                        disabled={isMobile}
                         className="your-class"
                         layers={[
                           {
-                            image: 'https://res.cloudinary.com/stevelee/image/upload/v1625436899/home-banner.jpg',
+                            image: 'https://res.cloudinary.com/stevelee/image/upload/v1625527703/hardscapes/20181201_102236.jpg',
                             amount: 0.8,
                           },
                         ]}
                         style={{
-                          height: '500px',
+                            height: isMobile ? '300px': '500px',
                         }}
                     >
                     </ParallaxBanner>
@@ -99,17 +104,18 @@ function IndexPage() {
 
 
         <WhyChooseUs/>
-        <Banner height="h-96">
+        <Banner height={isMobile ? '300px': "h-96"}>
           <ParallaxBanner
+              disabled={isMobile}
               className="your-class"
               layers={[
                 {
-                  image: 'https://res.cloudinary.com/stevelee/image/upload/v1625436899/home-banner.jpg',
+                  image: 'https://res.cloudinary.com/stevelee/image/upload/v1625530538/custom-installations/20180926_185502.jpg',
                   amount: 0.8,
                 },
               ]}
               style={{
-                height: '100%',
+                  height: isMobile ? '300px': '100%',
               }}
           >
             <div

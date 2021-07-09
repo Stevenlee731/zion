@@ -7,14 +7,15 @@ import { DialogOverlay, DialogContent } from "@reach/dialog";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from 'swiper';
 import {XIcon} from "@heroicons/react/solid";
+import {
+    isMobile
+} from "react-device-detect";
 
-// install Swiper modules
 SwiperCore.use([Navigation]);
 
 const Service = ({gallery}) => {
     const {resources} = gallery || {};
     const router = useRouter()
-    console.log(router.query)
     const {service} = router.query
     const formattedServiceName = service.replace(/-|\s/g," ")
     const [showDialog, setShowDialog] = useState(false);
@@ -23,9 +24,10 @@ const Service = ({gallery}) => {
     const [initialSlide, setInitialSlide] = useState(0)
 
     const handleImageClick = (public_id) => {
-        console.log(public_id)
-        setInitialSlide(resources.findIndex(slide => slide.public_id === public_id))
-        open();
+        if (!isMobile) {
+            setInitialSlide(resources.findIndex(slide => slide.public_id === public_id))
+            open();
+        }
     }
 
     return (
@@ -35,7 +37,7 @@ const Service = ({gallery}) => {
                 description="Landscaping services we offer"
             />
             <div className="max-w-7xl mx-auto">
-                <div className="relative pt-16 pb-20 lg:py-16">
+                <div className="relative pt-8 pb-8 lg:pt-16 lg:pb-20 lg:py-16">
                     <div className="relative max-w-7xl mx-auto">
                         <div className="text-center flex flex-col items-center">
                             <h2 className="capitalize max-w-lg text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
@@ -45,9 +47,9 @@ const Service = ({gallery}) => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-7xl mx-auto">
+            <div className="pb-8 lg:pb-16 px-6 lg:px-0 max-w-7xl mx-auto">
                 <ul role="list"
-                    className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 ">
+                    className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 ">
                     {
                         resources && resources.length > 0 ? (
                             resources.map((image, index) => {
