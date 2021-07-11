@@ -2,18 +2,50 @@ import React from "react";
 import Layout from "../components/layout";
 import {NextSeo} from "next-seo";
 import { useState } from 'react'
-import { Switch } from '@headlessui/react'
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 function ContactPage() {
-    const [agreed, setAgreed] = useState(false)
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [message, setMessage] = useState('')
+    const [submitted, setSubmitted] = useState(false)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log('Sending')
+        let data = {
+            firstName,
+            lastName,
+            phoneNumber,
+            email,
+            message
+        }
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then((res) => {
+            console.log('Response received')
+            if (res.status === 200) {
+                console.log('Response succeeded!')
+                setSubmitted(true)
+                setFirstName('')
+                setLastName('')
+                setEmail('')
+                setPhoneNumber('')
+                setMessage('')
+            }
+        })
+    }
+
   return (
     <Layout>
         <NextSeo
-            title="Zion Landscaping | Conteact"
+            title="Zion Landscaping | Contact"
             description="Your trusted Orange County landscaping company"
         />
           <div className="bg-white overflow-hidden sm:px-6 lg:px-8 lg:py-24">
@@ -63,10 +95,9 @@ function ContactPage() {
                       <rect width={404} height={404} fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)" />
                   </svg>
                   <div className="text-center">
-                      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Contact sales</h2>
+                      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Contact us</h2>
                       <p className="mt-4 text-lg leading-6 text-gray-500">
-                          Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus
-                          arcu.
+                          We'd love to discuss your home's next dream project!
                       </p>
                   </div>
                   <div className="mt-12">
@@ -77,6 +108,7 @@ function ContactPage() {
                               </label>
                               <div className="mt-1">
                                   <input
+                                      onChange={(e)=>{setFirstName(e.target.value)}}
                                       type="text"
                                       name="first-name"
                                       id="first-name"
@@ -91,6 +123,7 @@ function ContactPage() {
                               </label>
                               <div className="mt-1">
                                   <input
+                                      onChange={(e)=>{setLastName(e.target.value)}}
                                       type="text"
                                       name="last-name"
                                       id="last-name"
@@ -106,6 +139,7 @@ function ContactPage() {
                               </label>
                               <div className="mt-1">
                                   <input
+                                      onChange={(e)=>{setEmail(e.target.value)}}
                                       id="email"
                                       name="email"
                                       type="email"
@@ -119,26 +153,14 @@ function ContactPage() {
                                   Phone Number
                               </label>
                               <div className="mt-1 relative rounded-md shadow-sm">
-                                  <div className="absolute inset-y-0 left-0 flex items-center">
-                                      <label htmlFor="country" className="sr-only">
-                                          Country
-                                      </label>
-                                      <select
-                                          id="country"
-                                          name="country"
-                                          className="h-full py-0 pl-4 pr-8 border-transparent bg-transparent text-gray-500 focus:ring-green-500 focus:border-green-500 rounded-md"
-                                      >
-                                          <option>US</option>
-                                          <option>CA</option>
-                                          <option>EU</option>
-                                      </select>
-                                  </div>
+
                                   <input
+                                      onChange={(e)=>{setPhoneNumber(e.target.value)}}
                                       type="text"
                                       name="phone-number"
                                       id="phone-number"
                                       autoComplete="tel"
-                                      className="py-3 px-4 block w-full pl-20 focus:ring-green-500 focus:border-green-500 border border-gray-300 rounded-md"
+                                      className="py-3 px-4 block w-full focus:ring-green-500 focus:border-green-500 border border-gray-300 rounded-md"
                                       placeholder="+1 (555) 987-6543"
                                   />
                               </div>
@@ -154,16 +176,18 @@ function ContactPage() {
                     rows={4}
                     className="py-3 px-4 block w-full shadow-sm focus:ring-green-500 focus:border-green-500 border border border-gray-300 rounded-md"
                     defaultValue={''}
+                    onChange={(e)=>{setMessage(e.target.value)}}
                 />
                               </div>
                           </div>
 
                           <div className="sm:col-span-2">
                               <button
+                                  onClick={(e)=>{handleSubmit(e)}}
                                   type="submit"
                                   className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-400 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                               >
-                                  Let's talk
+                                  {submitted ? "Submitted!" : "Let's talk"}
                               </button>
                           </div>
                       </form>

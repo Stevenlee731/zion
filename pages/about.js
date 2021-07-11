@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import Banner from "../components/banner";
 import {ParallaxBanner} from "react-scroll-parallax";
 import {NextSeo} from "next-seo";
+import Testimonials from "../components/testimonials";
 
 function AboutPage() {
     return (
@@ -26,21 +27,22 @@ function AboutPage() {
                     </div>
                 </div>
             </div>
-            <Banner height="h-96">
+            <Banner height="300px">
                 <ParallaxBanner
                     className="your-class"
                     layers={[
                         {
-                            image: 'https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixqx=HUAB3P7Cex&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&sat=-100',
+                            image: 'https://res.cloudinary.com/stevelee/image/upload/v1625527419/softscapes/20210428_165451.jpg',
                             amount: 0.8,
                         },
                     ]}
                     style={{
-                        height: '500px',
+                        height: '300px',
                     }}
                 >
                 </ParallaxBanner>
             </Banner>
+            <Testimonials/>
         </Layout>
     );
 }

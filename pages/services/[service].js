@@ -87,7 +87,7 @@ const Service = ({gallery}) => {
                                             <div
                                                 onClick={() => handleImageClick(public_id)}
                                                 className="group block w-full aspect-w-10 aspect-h-7 overflow-hidden">
-                                                <CloudinaryImage publicId={public_id} className={"object-cover pointer-events-none"}/>
+                                                <CloudinaryImage width={1280} publicId={public_id} className={"object-cover pointer-events-none"}/>
                                             </div>
                                             </SwiperSlide>
                                     )

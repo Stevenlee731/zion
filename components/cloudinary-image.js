@@ -4,11 +4,11 @@ import {
     isMobile
 } from "react-device-detect";
 
-const CloudinaryImage = ({publicId, className}) => {
+const CloudinaryImage = ({publicId, className, width = 500}) => {
     const transformations = !isMobile ? {
         resize: {
             type: 'fill',
-            width: 500,
+            width,
         }
     } : {}
 

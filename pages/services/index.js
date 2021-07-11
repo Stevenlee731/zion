@@ -3,7 +3,10 @@ import Link from "next/link"
 import Image from 'next/image'
 import {NextSeo} from "next-seo";
 import React from "react";
-import testimonialImage from '../../images/home-banner.jpg'
+import bbqImage from '../../images/barbeques.jpg'
+import customInstallationsImage from '../../images/custom-installations.jpg'
+import softscapesImage from '../../images/softscapes.jpg'
+import hardscapesImage from '../../images/hardscapes.jpg'
 
 function ServicesPage() {
     const services = [
@@ -13,28 +16,28 @@ function ServicesPage() {
             description:
                 'Get a complimentary 3D design consultation so you can visualize how beautiful your home will look after the finised project.',
             imageUrl:
-            testimonialImage,
+            hardscapesImage,
         },
         {
             title: 'Softscapes',
             href: 'softscapes',
             description:
                 'Get a complimentary 3D design consultation so you can visualize how beautiful your home will look after the finised project.',
-            imageUrl: testimonialImage,
+            imageUrl: softscapesImage,
         },
         {
             title: 'Barbeques',
             href: 'barbeques',
             description:
                 'Get a complimentary 3D design consultation so you can visualize how beautiful your home will look after the finised project.',
-            imageUrl: testimonialImage,
+            imageUrl: bbqImage,
         },
         {
             title: 'Custom Installations',
             href: 'custom-installations',
             description:
                 'Get a complimentary 3D design consultation so you can visualize how beautiful your home will look after the finised project.',
-            imageUrl: testimonialImage,
+            imageUrl: customInstallationsImage,
         },
 
     ]

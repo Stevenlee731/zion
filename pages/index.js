@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Link from 'next/link'
 import { NextSeo } from 'next-seo';
 import Layout from "../components/layout";
 import WhyChooseUs from "../components/why-choose-us";
@@ -120,19 +120,18 @@ function IndexPage() {
           >
             <div
                 className="top-0 left-0 right-0 bottom-0 flex-col flex items-center justify-center absolute text-3xl lg:text-6xl text-white">
-              <a
-                  href="#"
-                  className="text-xl inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-400 hover:bg-green-50 hover:text-green-400 hover:border-green-400"
-              >
-                Get a free estimate
-              </a>
+                <Link href="/contact">
+                    <a
+                        className="text-xl inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-400 hover:bg-green-50 hover:text-green-400 hover:border-green-400"
+                    >
+                        Get a free estimate
+                    </a>
+                </Link>
             </div>
 
           </ParallaxBanner>
         </Banner>
-        {/*<ExceptionalService />*/}
         <Testimonials/>
-        {/* <Hours/> */}
       </Layout>
   );
 }
