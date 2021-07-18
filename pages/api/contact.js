@@ -1,40 +1,26 @@
-export default function (req, res) {
-  let nodemailer = require('nodemailer')
+const mail = require('@sendgrid/mail');
 
-  const transporter = nodemailer.createTransport({
-    port: 465,
-    host: "smtp.gmail.com",
-    auth: {
-      user: 'zion.inquiries@gmail.com',
-      pass: "7^Jy*Ve4%99@",
-    },
-    secure: true,
-  })
+mail.setApiKey(process.env.SENDGRID_API_KEY);
 
-  console.log({transporter})
-  const mailData = {
+export default async (req, res) => {
+  const body = JSON.parse(req.body);
+
+  const message = `
+    Name: ${body.firstName} ${body.lastName}\r\n
+    Email: ${body.email}\r\n
+    Phone: ${body.phoneNumber}\r\n
+    Message: ${body.message}
+  `;
+
+  const data = {
+    to: 'SENDER-EMAIL',
     from: 'zion.inquiries@gmail.com',
-    to: 'stevenlee731@gmail.com',
-    subject: `Message From ${req.body.firstName} ${req.body.lastName} | ${req.body.phoneNumber}`,
-    text: req.body.message + " | Sent from: " + req.body.email,
-    html: `<div>${req.body.message}</div><p>Sent from:
-    ${req.body.email}</p>`
-  }
+    subject: `New message from ${body.firstName} ${body.lastName}`,
+    text: message,
+    html: message.replace(/\r\n/g, '<br />'),
+  };
 
-  return new Promise((resolve, reject) => {
-    transporter.sendMail(mailData, function (err, info) {
-      if (err) {
-        console.log(err);
-        res.status(500).end();
-        return resolve();
-      }
+  await mail.send(data);
 
-      else {
-        console.log(info);
-      }
-
-    })
-    res.status(200).end();
-    resolve();
-  });
-}
+  res.status(200).json({ status: 'OK' });
+};
