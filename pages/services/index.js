@@ -14,7 +14,7 @@ function ServicesPage() {
             title: 'Hardscapes',
             href: 'hardscapes',
             description:
-                'Get a complimentary 3D design consultation so you can visualize how beautiful your home will look after the finised project.',
+                'Concrete, tile, pavers, and more. Influenced by different inspirations to fit your specific style',
             imageUrl:
             hardscapesImage,
         },
@@ -22,21 +22,21 @@ function ServicesPage() {
             title: 'Softscapes',
             href: 'softscapes',
             description:
-                'Get a complimentary 3D design consultation so you can visualize how beautiful your home will look after the finised project.',
+                'We bring color to any yard utilizing live plants and synthetic turf, and install accommodating irrigation systems for a thriving paradise.',
             imageUrl: softscapesImage,
         },
         {
             title: 'Barbeques',
             href: 'barbeques',
             description:
-                'Get a complimentary 3D design consultation so you can visualize how beautiful your home will look after the finised project.',
+                'A statement piece that brings family and friends together. We install customized barbeques so you can cater to all of your guests',
             imageUrl: bbqImage,
         },
         {
             title: 'Custom Installations',
             href: 'custom-installations',
             description:
-                'Get a complimentary 3D design consultation so you can visualize how beautiful your home will look after the finised project.',
+                'We build and install water features, fireplaces, balconies, and much more! Add these features to complete your dream oasis.',
             imageUrl: customInstallationsImage,
         },
 
