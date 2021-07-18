@@ -3,6 +3,8 @@ import CloseIcon from "./svg/close-icon";
 import MenuIcon from "./svg/menu-icon";
 import Link from 'next/link'
 import config from '../config'
+import Image from 'next/image'
+import zionLogo from '../images/zion-logo.jpg'
 
 function Header() {
     const [isExpanded, toggleExpansion] = useState(false);
@@ -18,16 +20,15 @@ function Header() {
                     {isExpanded ? <CloseIcon/> : <MenuIcon/>}
                 </button>
 
-                <Link href="/">
-                    <h1 className="flex items-center text-white no-underline">
-                        <img
-                            className="bg-gray-800 w-8 h-8 mr-2 fill-current"
-                            src="https://dedhamdocs.com/wp-content/uploads/2019/03/leaf-icon-png-18.png"
-                        ></img>
-                        <span className="text-xl font-bold tracking-tight hidden md:block pr-3 text-black">
-             {config.title}
-            </span>
-                    </h1>
+                <Link passHref href="/">
+                       <Image
+                        src={zionLogo}
+                        alt="zion logo"
+                        width={100}
+                        height={64}
+                        className="bg-gray-800 fill-curren cursor-pointer"
+                        />
+
                 </Link>
 
                 <nav

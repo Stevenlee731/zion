@@ -1,6 +1,5 @@
 import QuotationSVG from './svg/quotation'
 import Image from "next/image";
-import testimonialImage from '../images/home-banner.jpg'
 
 function Testimonials() {
     return (
@@ -12,7 +11,7 @@ function Testimonials() {
                             <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
                                 <div
                                     className="aspect-w-10 aspect-h-6 shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-                                    <Image layout={"fill"} className="rounded-xl object-cover lg:h-full lg:w-full" src={"https://res.cloudinary.com/stevelee/image/upload/w_800/v1625527704/hardscapes/20201123_163909.jpg"}/>
+                                    <Image alt="testimonial-1" layout={"fill"} className="rounded-xl object-cover lg:h-full lg:w-full" src={"https://res.cloudinary.com/stevelee/image/upload/w_800/v1625527704/hardscapes/20201123_163909.jpg"}/>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +55,7 @@ function Testimonials() {
                             <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
                                 <div
                                     className="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-                                    <Image layout={"fill"} className="rounded-xl object-cover lg:h-full lg:w-full" src={"https://res.cloudinary.com/stevelee/image/upload/w_800/v1625527417/softscapes/20200514_115051.jpg"}/>
+                                    <Image alt="testimonial-2" layout={"fill"} className="rounded-xl object-cover lg:h-full lg:w-full" src={"https://res.cloudinary.com/stevelee/image/upload/w_800/v1625527417/softscapes/20200514_115051.jpg"}/>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +69,7 @@ function Testimonials() {
                             <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
                                 <div
                                     className="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-                                    <Image layout={"fill"} className="rounded-xl object-cover lg:h-full lg:w-full" src={"https://res.cloudinary.com/stevelee/image/upload/w_800/v1625530544/custom-installations/20200522_145122.jpg"}/>
+                                    <Image alt="testimonial-3" layout={"fill"} className="rounded-xl object-cover lg:h-full lg:w-full" src={"https://res.cloudinary.com/stevelee/image/upload/w_800/v1625530544/custom-installations/20200522_145122.jpg"}/>
                                 </div>
                             </div>
                         </div>

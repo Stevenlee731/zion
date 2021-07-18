@@ -45,6 +45,7 @@ export default function Footer() {
                         </div>
                         <div className="px-5 py-2">
                                 <a
+                                    rel="noreferrer"
                                     target="_blank"
                                     href="https://www.instagram.com/zionlandscape"
                                     className="text-base leading-6 text-gray-500 hover:text-gray-900"

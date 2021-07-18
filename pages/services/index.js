@@ -57,6 +57,7 @@ function ServicesPage() {
                         <div className="mt-12 px-6 lg:px-0 max-w-lg mx-auto grid gap-x-7 gap-y-10 lg:grid-cols-3 lg:max-w-none">
                             {services.map((service) => (
                                 <Link
+                                    passHref
                                     key={service.title}
                                     href={`/services/${service.href}`}
                                 >

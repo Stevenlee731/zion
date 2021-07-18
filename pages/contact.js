@@ -94,7 +94,7 @@ function ContactPage() {
                   <div className="text-center">
                       <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Contact us</h2>
                       <p className="mt-4 text-lg leading-6 text-gray-500">
-                          We'd love to discuss your home's next dream project!
+                          {'We\'d love to discuss your home\'s next dream project!'}
                       </p>
                   </div>
                   <div className="mt-12">
