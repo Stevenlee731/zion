@@ -15,7 +15,7 @@ function AboutPage() {
                 description="Your trusted Orange County landscaping company"
             />
             <div className="max-w-7xl mx-auto">
-                <div className="relative sm:px-6 pt-16 pb-20 lg:pt-24 lg:pb-16">
+                <div className="relative px-4 sm:px-6 lg:px-0 pt-16 pb-20 lg:pt-24 lg:pb-16">
                     <div className="relative max-w-7xl mx-auto">
                         <div className="text-center flex flex-col items-center">
                             <h2 className="max-w-lg text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
