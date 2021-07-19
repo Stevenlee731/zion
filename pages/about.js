@@ -5,6 +5,7 @@ import Banner from "../components/banner";
 import {ParallaxBanner} from "react-scroll-parallax";
 import {NextSeo} from "next-seo";
 import Testimonials from "../components/testimonials";
+import {isMobile} from "react-device-detect";
 
 function AboutPage() {
     return (
@@ -29,6 +30,7 @@ function AboutPage() {
             </div>
             <Banner height="300px">
                 <ParallaxBanner
+                    disabled={isMobile}
                     className="your-class"
                     layers={[
                         {
