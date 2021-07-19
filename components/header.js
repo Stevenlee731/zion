@@ -22,6 +22,7 @@ function Header() {
 
                 <Link passHref href="/">
                        <Image
+                           priority
                         src={zionLogo}
                         alt="zion logo"
                         width={100}
