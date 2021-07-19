@@ -26,7 +26,7 @@ function Header() {
                         alt="zion logo"
                         width={100}
                         height={64}
-                        className="bg-gray-800 fill-curren cursor-pointer"
+                        className="cursor-pointer"
                         />
 
                 </Link>
