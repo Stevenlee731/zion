@@ -63,17 +63,19 @@ function IndexPage() {
                       <div className="mt-6">
                         <Link
                             href="/contact"
-                            className="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-400 hover:bg-green-50 hover:text-green-400 hover:border-green-400"
                         >
-                          Get a free estimate
+                            <a className="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-400 hover:bg-green-50 hover:text-green-400 hover:border-green-400">
+                                Get a free estimate
+                            </a>
                         </Link>
                       </div>
                       <div className="mt-6">
                         <Link
                             href="/about"
-                            className="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-green-400 bg-white hover:bg-green-400 hover:text-white border-green-400"
                         >
-                          More about us
+                            <a                             className="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-green-400 bg-white hover:bg-green-400 hover:text-white border-green-400">
+                                More about us
+                            </a>
                         </Link>
                       </div>
                     </div>
