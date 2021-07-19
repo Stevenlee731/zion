@@ -14,7 +14,7 @@ function ServicesPage() {
             title: 'Hardscapes',
             href: 'hardscapes',
             description:
-                'Concrete, tile, pavers, and more. Influenced by different inspirations to fit your specific style',
+                'Concrete, tile, pavers, and more. Influenced by different inspirations to fit your specific style.',
             imageUrl:
             hardscapesImage,
         },
@@ -29,7 +29,7 @@ function ServicesPage() {
             title: 'Barbeques',
             href: 'barbeques',
             description:
-                'A statement piece that brings family and friends together. We install customized barbeques so you can cater to all of your guests',
+                'A statement piece that brings family and friends together. We install customized barbeques so you can cater to all of your guests.',
             imageUrl: bbqImage,
         },
         {
