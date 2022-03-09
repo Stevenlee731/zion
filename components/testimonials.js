@@ -69,7 +69,7 @@ function Testimonials() {
                             <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
                                 <div
                                     className="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-                                    <Image alt="testimonial-3" layout={"fill"} className="rounded-xl object-cover lg:h-full lg:w-full" src={"https://res.cloudinary.com/stevelee/image/upload/w_800/v1625530544/custom-installations/20200522_145122.jpg"}/>
+                                    <Image alt="testimonial-3" layout={"fill"} className="rounded-xl object-cover lg:h-full lg:w-full" src={"https://res.cloudinary.com/stevelee/image/upload/w_800/v1625530544/custom-installations/20200522_145119.jpg"}/>
                                 </div>
                             </div>
                         </div>
