@@ -1,88 +1,124 @@
+import React, { useState } from "react";
 import Layout from "../../components/layout";
-import Link from "next/link"
-import Image from 'next/image'
-import {NextSeo} from "next-seo";
-import React from "react";
-import bbqImage from '../../images/barbeques.jpg'
-import customInstallationsImage from '../../images/custom-installations.jpg'
-import softscapesImage from '../../images/softscapes.jpg'
-import hardscapesImage from '../../images/hardscapes.jpg'
+import { NextSeo } from "next-seo";
+import CloudinaryImage from "../../components/cloudinary-image";
+import { DialogOverlay, DialogContent } from "@reach/dialog";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper";
+import { XIcon } from "@heroicons/react/solid";
+import { isMobile } from "react-device-detect";
 
-function ServicesPage() {
-    const services = [
-        {
-            title: 'Hardscapes',
-            href: 'hardscapes',
-            description:
-                'Concrete, tile, pavers, and more. Influenced by different inspirations to fit your specific style.',
-            imageUrl:
-            hardscapesImage,
-        },
-        {
-            title: 'Softscapes',
-            href: 'softscapes',
-            description:
-                'We bring color to any yard utilizing live plants and synthetic turf, and install accommodating irrigation systems for a thriving paradise.',
-            imageUrl: softscapesImage,
-        },
-        {
-            title: 'Barbeques',
-            href: 'barbeques',
-            description:
-                'A statement piece that brings family and friends together. We install customized barbeques so you can cater to all of your guests.',
-            imageUrl: bbqImage,
-        },
-        {
-            title: 'Custom Installations',
-            href: 'custom-installations',
-            description:
-                'We build and install water features, fireplaces, balconies, and much more! Add these features to complete your dream oasis.',
-            imageUrl: customInstallationsImage,
-        },
+SwiperCore.use([Navigation]);
 
-    ]
-    return (
-        <Layout>
-            <NextSeo
-                title="Zion Landscaping | Services"
-                description="Landscaping services we offer"
-            />
-            <div className="max-w-7xl mx-auto">
-                <div className="relative pt-16 pb-20 lg:pt-24 lg:pb-28">
-                    <div className="relative max-w-7xl mx-auto">
-                        <div className="text-center">
-                            <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">Services We
-                                offer</h2>
-                        </div>
-                        <div className="mt-12 px-6 lg:px-0 max-w-lg mx-auto grid gap-x-7 gap-y-10 lg:grid-cols-3 lg:max-w-none">
-                            {services.map((service) => (
-                                <Link
-                                    passHref
-                                    key={service.title}
-                                    href={`/services/${service.href}`}
-                                >
-                                    <div className="cursor-pointer flex flex-col rounded-lg shadow-lg overflow-hidden">
-                                        <div className="flex-shrink-0">
-                                            <Image layout={"responsive"} className="h-64 w-full object-cover"
-                                                   src={service.imageUrl} alt={service.title}/>
-                                        </div>
-                                        <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                                            <div className="flex-1">
+function ServicesPage({ gallery }) {
+  const { resources } = gallery || {};
+  const formattedServiceName = "Softscapes";
+  const [showDialog, setShowDialog] = useState(false);
+  const open = () => setShowDialog(true);
+  const close = () => setShowDialog(false);
+  const [initialSlide, setInitialSlide] = useState(0);
 
-                                                <p className="text-xl font-semibold text-center text-gray-900">{service.title}</p>
-                                                <p className="mt-3 text-base text-center text-gray-500">{service.description}</p>
+  const handleImageClick = (public_id) => {
+    if (!isMobile) {
+      setInitialSlide(
+        resources.findIndex((slide) => slide.public_id === public_id)
+      );
+      open();
+    }
+  };
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+  return (
+    <Layout>
+      <NextSeo
+        title="Zion Landscaping | Services"
+        description="Landscaping services we offer"
+      />
+      <div className="max-w-7xl mx-auto">
+        <div className="relative pt-8 pb-8 lg:pt-16 lg:pb-20 lg:py-16">
+          <div className="relative max-w-7xl mx-auto">
+            <div className="text-center flex flex-col items-center">
+              <h2 className="capitalize max-w-lg text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+                {formattedServiceName}
+              </h2>
             </div>
-        </Layout>
-    );
+          </div>
+        </div>
+      </div>
+      <div className="pb-8 lg:pb-16 px-6 lg:px-0 max-w-7xl mx-auto">
+        <ul
+          role="list"
+          className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 "
+        >
+          {resources && resources.length > 0
+            ? resources.map((image, index) => {
+                const { public_id } = image;
+                return (
+                  <li key={`${public_id}-${index}`} className="relative">
+                    <div
+                      onClick={() => handleImageClick(public_id)}
+                      className="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"
+                    >
+                      <CloudinaryImage
+                        publicId={public_id}
+                        className={
+                          "object-cover pointer-events-none group-hover:opacity-75"
+                        }
+                      />
+                    </div>
+                  </li>
+                );
+              })
+            : null}
+        </ul>
+      </div>
+      <DialogOverlay
+        style={{ background: "hsla(0, 100%, 100%, 0.9)" }}
+        isOpen={showDialog}
+        onDismiss={close}
+      >
+        <DialogContent
+          aria-label={`${formattedServiceName} carousel`}
+          className="relative"
+          style={{ boxShadow: "0px 10px 50px hsla(0, 0%, 0%, 0.33)" }}
+        >
+          <Swiper className="mySwiper" navigation initialSlide={initialSlide}>
+            {resources && resources.length > 0
+              ? resources.map((image, index) => {
+                  const { public_id } = image;
+                  return (
+                    <SwiperSlide key={`${public_id}-${index}`} className="relative">
+                      <div
+                        onClick={() => handleImageClick(public_id)}
+                        className="group block w-full aspect-w-10 aspect-h-7 overflow-hidden"
+                      >
+                        <CloudinaryImage
+                          width={1280}
+                          publicId={public_id}
+                          className={"object-cover pointer-events-none"}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  );
+                })
+              : null}
+          </Swiper>
+          <button className="h-6 w-6 absolute inset-y-1 right-1" onClick={close}>
+            <XIcon />
+          </button>
+        </DialogContent>
+      </DialogOverlay>
+    </Layout>
+  );
 }
 
 export default ServicesPage;
+
+export async function getStaticProps() {
+  const request = await fetch(
+    "https://res.cloudinary.com/stevelee/image/list/softscapes.json"
+  );
+  const gallery = await request.json();
+  return {
+    props: { gallery },
+  };
+}

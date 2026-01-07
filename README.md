@@ -4,6 +4,25 @@ This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](
 
 It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
 
+## Requirements
+
+- **Node.js**: `20.x` (see `.nvmrc`)
+- **Yarn**: v1
+
+## Local development
+
+```bash
+nvm use
+yarn install
+yarn dev
+```
+
+If you hit an OpenSSL hashing error on your machine, you can use:
+
+```bash
+yarn dev:legacy-ssl
+```
+
 ## Preview
 
 Preview the example live on [StackBlitz](http://stackblitz.com/):

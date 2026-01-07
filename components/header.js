@@ -4,7 +4,6 @@ import MenuIcon from "./svg/menu-icon";
 import Link from 'next/link'
 import config from '../config'
 import Image from 'next/image'
-import zionLogo from '../images/zion-logo.jpg'
 
 function Header() {
     const [isExpanded, toggleExpansion] = useState(false);
@@ -23,11 +22,12 @@ function Header() {
                 <Link passHref href="/">
                        <Image
                            priority
-                        src={zionLogo}
+                        src="/zion-logo.jpg"
                         alt="zion logo"
                         width={100}
                         height={64}
                         className="cursor-pointer"
+                        unoptimized
                         />
 
                 </Link>
